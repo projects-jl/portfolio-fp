@@ -24,6 +24,16 @@ html, body {
   padding: 0;
 }
 
+/* Hide the scrollbar so an embedding iframe never shows a stray gap on the
+   right edge while it waits for the postMessage height handshake to settle. */
+html {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   font-family: 'Neue Haas Unica', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: var(--ink);

@@ -49,5 +49,16 @@
     });
   });
 
+  // The parent page's listener script registers late (footer), so the very
+  // first broadcasts can fire before it exists and get dropped. Re-broadcast
+  // on a short interval for a few seconds after load so the listener is
+  // guaranteed to catch one regardless of registration timing.
+  var rebroadcasts = 0;
+  var rebroadcastTimer = setInterval(function () {
+    sendHeight();
+    rebroadcasts += 1;
+    if (rebroadcasts > 20) clearInterval(rebroadcastTimer);
+  }, 200);
+
   setTimeout(sendHeight, 100);
 })();
