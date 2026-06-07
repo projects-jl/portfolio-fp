@@ -29,3 +29,25 @@
     });
   });
 })();
+
+(function () {
+  function sendHeight() {
+    var height = document.documentElement.scrollHeight;
+    window.parent.postMessage({ source: 'flatpay-process', height: height }, '*');
+  }
+
+  window.addEventListener('load', sendHeight);
+  window.addEventListener('resize', sendHeight);
+
+  if (window.ResizeObserver) {
+    new ResizeObserver(sendHeight).observe(document.body);
+  }
+
+  document.querySelectorAll('.subnav-item').forEach(function (item) {
+    item.addEventListener('click', function () {
+      setTimeout(sendHeight, 400);
+    });
+  });
+
+  setTimeout(sendHeight, 100);
+})();
