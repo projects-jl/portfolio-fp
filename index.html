@@ -4,236 +4,310 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>Flatpay — Process</title>
+  <title>Flatpay: Process</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="hero">
-    <p class="eyebrow">Flatpay — Product &amp; UX Design</p>
+    <p class="eyebrow">Flatpay: Product &amp; UX Design</p>
     <h1>Scaling a POS for owner-operated businesses across seven markets</h1>
     <p class="lede">
       Flatpay's product spans PAY, POS, mPOS and a merchant portal across DK, FI, DE, IT, FR, UK and NL.
-      The work below traces two of the value streams that shaped the 2026 roadmap — expanding into new
-      geographies, and unlocking the product for more complex merchants — from research to shipped design.
+      The work below traces two of the value streams that shaped the 2026 roadmap: expanding into new
+      geographies and unlocking the product for more complex merchants, from research to shipped design.
     </p>
   </header>
 
   <section class="kpis" aria-label="Core KPIs">
     <p class="section-label"><span>Value streams</span><span>4 north-star metrics</span></p>
-    <div class="kpi-grid">
-      <article class="kpi-card">
-        <p class="kpi-index">01</p>
-        <h3>Market activation rate</h3>
-        <p class="kpi-stream">Geo Unlocks</p>
+    <ul class="kpi-row" role="list">
+      <li class="kpi-stat is-linked">
+        <span class="kpi-dot" aria-hidden="true"></span>
+        <p class="kpi-num">01</p>
+        <h3>Geo Unlocks</h3>
         <p class="kpi-desc">% of new-market POS merchants reaching target TPV within 21 days of installation.</p>
-      </article>
-      <article class="kpi-card">
-        <p class="kpi-index">02</p>
-        <h3>Time-to-sell</h3>
-        <p class="kpi-stream">Conversion Unlocks</p>
+        <button class="kpi-link" type="button" data-stream="geo" aria-controls="panel-geo">
+          Geo Expansion case study <span aria-hidden="true">→</span>
+        </button>
+      </li>
+      <li class="kpi-stat">
+        <p class="kpi-num">02</p>
+        <h3>Conversion Unlocks</h3>
         <p class="kpi-desc">P50 / P95 time from onboarding to a merchant's first live sale across core flows.</p>
-      </article>
-      <article class="kpi-card">
-        <p class="kpi-index">03</p>
-        <h3>Feature activation rate</h3>
-        <p class="kpi-stream">ICP Unlocks</p>
+      </li>
+      <li class="kpi-stat is-linked">
+        <span class="kpi-dot" aria-hidden="true"></span>
+        <p class="kpi-num">03</p>
+        <h3>ICP Unlocks</h3>
         <p class="kpi-desc">% of POS merchants actively using a newly shipped feature within 30 days of launch.</p>
-      </article>
-      <article class="kpi-card">
-        <p class="kpi-index">04</p>
-        <h3>Net payment margin per €TPV</h3>
-        <p class="kpi-stream">Revenue Unlocks</p>
+        <button class="kpi-link" type="button" data-stream="icp" aria-controls="panel-icp">
+          ICP Unlock case study <span aria-hidden="true">→</span>
+        </button>
+      </li>
+      <li class="kpi-stat">
+        <p class="kpi-num">04</p>
+        <h3>Revenue Unlocks</h3>
         <p class="kpi-desc">Revenue captured per euro of total payment volume processed, after costs.</p>
-      </article>
-    </div>
+      </li>
+    </ul>
   </section>
 
-  <nav class="subnav" aria-label="Project navigation">
-    <p class="section-label"><span>Explore the work</span><span id="subnav-counter">01 / 02</span></p>
-    <div class="subnav-list">
-      <button class="subnav-item is-active" data-stream="geo">
-        <span class="subnav-index">01</span>
-        <span class="subnav-text">
-          <span class="subnav-title">Geo Expansion</span>
-          <span class="subnav-sub">Research in the UK &amp; Netherlands → Service Charge feature design</span>
-        </span>
-        <span class="subnav-arrow">↗</span>
+  <div class="case-studies">
+    <div class="case-toggle" role="tablist" aria-label="Switch case study">
+      <button class="case-toggle-btn is-active" type="button" data-stream="geo" role="tab" aria-selected="true" aria-controls="panel-geo">
+        <span class="case-toggle-index">01</span> Geo Expansion
       </button>
-      <button class="subnav-item" data-stream="icp">
-        <span class="subnav-index">02</span>
-        <span class="subnav-text">
-          <span class="subnav-title">ICP Unlock</span>
-          <span class="subnav-sub">Modifiers — designing a complex feature for a simple POS</span>
-        </span>
-        <span class="subnav-arrow">↗</span>
+      <button class="case-toggle-btn" type="button" data-stream="icp" role="tab" aria-selected="false" aria-controls="panel-icp">
+        <span class="case-toggle-index">02</span> ICP Unlock
       </button>
     </div>
-  </nav>
 
-  <!-- ===================== GEO EXPANSION PANEL ===================== -->
-  <section class="panel is-active" id="panel-geo" data-panel="geo">
+    <!-- ===================== GEO EXPANSION PANEL ===================== -->
+  <section class="panel is-active" id="panel-geo" data-panel="geo" role="tabpanel" aria-label="Geo Expansion case study">
     <div class="panel-head">
-      <p class="panel-eyebrow">01 — Geo Expansion · Research → Feature design</p>
+      <p class="panel-eyebrow">01 · Geo Expansion: Research → Feature design</p>
       <h2>Researching new markets, then designing for what they actually need</h2>
       <p class="panel-intro">
-        Geo Expansion is Flatpay's primary growth lever — every new market needs to activate quickly and
+        Geo Expansion is Flatpay's primary growth lever: every new market needs to activate quickly and
         reach meaningful transaction volume fast. To get there, the team ran in-depth merchant research in
         two markets ahead of launch: the <strong>UK</strong> and the <strong>Netherlands</strong>.
       </p>
     </div>
 
-    <div class="research-pair">
-      <article class="research-card">
+    <ul class="research-row" role="list">
+      <li class="research-stat">
+        <p class="research-num">01</p>
         <p class="research-tag">Research · Netherlands</p>
         <h3>2025 NL UXR Report</h3>
-        <p>
-          Part of the broader Geo Expansion research portfolio — establishing how Dutch merchants run
+        <p class="research-desc">
+          Part of the broader Geo Expansion research portfolio, establishing how Dutch merchants run
           their businesses, what payment habits and POS expectations look like locally, and where Flatpay's
           current product would need to flex ahead of a launch.
         </p>
-      </article>
-      <article class="research-card is-primary">
+      </li>
+      <li class="research-stat">
+        <p class="research-num">02</p>
         <p class="research-tag">Research · United Kingdom</p>
         <h3>2025 UK PMF Report</h3>
-        <p>
+        <p class="research-desc">
           Three days of cold, in-person merchant visits across Fulham Road, Hammersmith, North End Road,
-          Covent Garden and Soho — interviews, observations and photo evidence with F&amp;B, retail and
+          Covent Garden and Soho: interviews, observations and photo evidence with F&amp;B, retail and
           service businesses that fit Flatpay's ICP.
         </p>
         <p class="research-finding">
           <strong>Finding:</strong> PAY fits the UK market as-is. POS fits smaller venues without table
-          service — but to compete for venues <em>with</em> table service, Flatpay needed
+          service, but to compete for venues <em>with</em> table service, Flatpay needed
           <strong> service charge handling, clock-in/clock-out, and an order/transaction history tab.</strong>
         </p>
-      </article>
-    </div>
+      </li>
+    </ul>
 
-    <div class="flow" aria-label="From research to shipped feature">
+    <div class="journey" aria-label="From research to shipped feature">
       <p class="flow-label">From UK research to a shipped feature</p>
-      <div class="flow-track">
-        <div class="flow-node">
-          <span class="flow-dot">1</span>
-          <h4>Research</h4>
-          <p>In-market merchant visits surface that UK table-service venues run on a 12.5% service charge,
-            toggled at checkout and set centrally in the portal — a "must have" to compete.</p>
-        </div>
-        <div class="flow-node">
-          <span class="flow-dot">2</span>
-          <h4>Prioritisation</h4>
-          <p>Findings were weighed against the launch-readiness matrix — service charge landed in the
-            "can't launch without it" tier for both POS and Portal, ahead of nice-to-haves like clock-in/out.</p>
-        </div>
-        <div class="flow-node">
-          <span class="flow-dot">3</span>
-          <h4>Feature design</h4>
-          <p>Designed the end-to-end Service Charge flow — manager sets the rate in the Portal, staff
-            toggle it on/off per order at checkout, and it's reflected clearly across receipts and reports.</p>
-        </div>
-        <div class="flow-node">
-          <span class="flow-dot">4</span>
-          <h4>Scalable structure</h4>
-          <p>Used the feature as a forcing function to rethink the POS's "all actions" area more broadly —
-            proposing a clearer, trackable structure rather than another one-off addition.</p>
-        </div>
-      </div>
+      <ol class="journey-list">
+        <li class="journey-entry">
+          <span class="journey-num" aria-hidden="true">01</span>
+          <div class="journey-copy">
+            <h4>Research</h4>
+            <p>In-market merchant visits surface that UK table-service venues run on a 12.5% service charge,
+              toggled at checkout and set centrally in the portal: a "must have" to compete.</p>
+          </div>
+        </li>
+        <li class="journey-entry">
+          <span class="journey-num" aria-hidden="true">02</span>
+          <div class="journey-copy">
+            <h4>Prioritisation</h4>
+            <p>Findings were weighed against the launch-readiness matrix: service charge landed in the
+              "can't launch without it" tier for both POS and Portal, ahead of nice-to-haves like clock-in/out.</p>
+          </div>
+        </li>
+        <li class="journey-entry">
+          <span class="journey-num" aria-hidden="true">03</span>
+          <div class="journey-copy">
+            <h4>Feature design</h4>
+            <p>Designed the end-to-end Service Charge flow: manager sets the rate in the Portal, staff
+              toggle it on/off per order at checkout, and it's reflected clearly across receipts and reports.</p>
+          </div>
+        </li>
+        <li class="journey-entry">
+          <span class="journey-num" aria-hidden="true">04</span>
+          <div class="journey-copy">
+            <h4>Scalable structure</h4>
+            <p>Used the feature as a forcing function to rethink the POS's "all actions" area more broadly,
+              proposing a clearer, trackable structure rather than another one-off addition.</p>
+          </div>
+        </li>
+      </ol>
     </div>
 
-    <div class="gallery" aria-label="POS Improvements deck excerpts">
-      <p class="gallery-label">From the "POS Improvements — All Actions" proposal deck</p>
-      <div class="gallery-grid">
-        <figure>
-          <img src="assets/pos-improvements-1.png" alt="Slide: Context — actions are grouped into a single all-actions area, hidden behind a kebab menu" loading="lazy" />
-          <figcaption>Context — today's all-actions area is a catch-all hidden behind a kebab menu</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/pos-improvements-2.png" alt="Slide: The product today — five active markets and growing complexity, but the structure hasn't evolved" loading="lazy" />
-          <figcaption>The product today — five live markets, but the underlying structure hasn't evolved with them</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/pos-improvements-5.png" alt="Slide: Reducing risk — proposing lightweight usage tracking before restructuring further" loading="lazy" />
-          <figcaption>Reducing risk — proposing lightweight usage tracking to validate before restructuring further</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/pos-improvements-9.png" alt="Slide: Next steps — align on positioning, validate with UK merchants in the Service Charge context, add usage visibility" loading="lazy" />
-          <figcaption>Next steps — validating the proposed structure directly with UK merchants in the Service Charge context</figcaption>
-        </figure>
+    <div class="outcomes" aria-label="What shipped from the UK research">
+      <h3 class="subhead">Two of the three gaps from that visit have already shipped</h3>
+      <p class="subhead-intro">
+        Service charge handling launched first, and its design work doubled as the forcing function for
+        rethinking the POS's catch-all "all actions" menu, the structure that had been holding five
+        growing markets inside one unchanged kebab menu since the product's earliest days. Staff identity
+        followed soon after, laying the foundation the clock-in/clock-out tracking from the same finding
+        depends on.
+      </p>
+
+      <div class="compare" aria-label="Service charge and the all-actions menu, before and after">
+        <div class="compare-pair">
+          <figure class="compare-frame">
+            <span class="compare-tag">Before</span>
+            <img src="assets/Old.png" alt="Earlier Flatpay POS order screen for Table 6: a flat list of items, a single flat action bar along the bottom, and no way to apply a service charge" loading="lazy" />
+          </figure>
+          <figure class="compare-frame">
+            <span class="compare-tag">Shipped</span>
+            <img src="assets/New.png" alt="Shipped Flatpay POS order screen with the restructured action menu open: a Service charge (12.5%) toggle sits among the now-grouped actions, and the charge appears as its own line in the order total" loading="lazy" />
+            <span class="marker" style="--mx: 92%; --my: 26%;" aria-hidden="true">1</span>
+            <span class="marker" style="--mx: 82%; --my: 76%;" aria-hidden="true">2</span>
+          </figure>
+        </div>
+        <p class="compare-caption">
+          The earlier screen had no concept of a service charge at all; staff would have had to calculate
+          and key it in by hand, order by order. The shipped version folds the toggle directly into the
+          restructured action list <span class="marker-ref" aria-hidden="true">1</span>, and the 12.5%
+          is reflected automatically in the total <span class="marker-ref" aria-hidden="true">2</span>,
+          the exact behaviour UK merchants called a "must have" to compete for table-service venues.
+        </p>
+      </div>
+
+      <div class="compare" aria-label="Staff identity, before and after">
+        <div class="compare-pair">
+          <figure class="compare-frame">
+            <span class="compare-tag">Before</span>
+            <img src="assets/Dashboard.png" alt="Earlier Flatpay POS settings menu showing a single generic two-letter avatar, with no way to identify or switch between staff members" loading="lazy" />
+          </figure>
+          <figure class="compare-frame">
+            <span class="compare-tag">Shipped</span>
+            <img src="assets/Dashboard-1.png" alt="Shipped Flatpay POS settings menu naming the staff member, Deborah R., with a Switch user control beside her name" loading="lazy" />
+            <span class="marker" style="--mx: 83%; --my: 70%;" aria-hidden="true">1</span>
+          </figure>
+        </div>
+        <p class="compare-caption">
+          One login used to cover an entire shift, so a sale, a discount or a refund couldn't be traced
+          back to the person who made it. Staff now switch profiles in seconds
+          <span class="marker-ref" aria-hidden="true">1</span>, the identity layer that clock-in/clock-out
+          tracking, the second item on the UK list, needed to exist before it could be built.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- ===================== ICP UNLOCK / MODIFIERS PANEL ===================== -->
-  <section class="panel" id="panel-icp" data-panel="icp">
+  <section class="panel" id="panel-icp" data-panel="icp" role="tabpanel" aria-label="ICP Unlock case study">
     <div class="panel-head">
-      <p class="panel-eyebrow">02 — ICP Unlock · Modifiers</p>
-      <h2>Designing modifiers — without making the POS harder to use</h2>
+      <p class="panel-eyebrow">02 · ICP Unlock: Modifiers</p>
+      <h2>Designing modifiers without making the POS harder to use</h2>
       <p class="panel-intro">
-        Modifiers let a merchant capture how a customer wants something — "no onions," "extra cheese,"
-        "medium rare" — without bloating the menu or the order ticket. It's one of the most-requested
+        Modifiers let a merchant capture how a customer wants something ("no onions," "extra cheese,"
+        "medium rare") without bloating the menu or the order ticket. It's one of the most-requested
         features blocking Flatpay from serving more complex merchants, and the foundation for online
         ordering integrations with platforms like Uber Eats and Wolt.
       </p>
     </div>
 
-    <div class="flow" aria-label="Modifiers design process">
+    <div class="journey" aria-label="Modifiers design process">
       <p class="flow-label">Design process</p>
-      <div class="flow-track">
-        <div class="flow-node">
-          <span class="flow-dot">1</span>
-          <h4>Merchant visits</h4>
-          <p>Visited three Copenhagen merchants who needed the feature, to validate scope assumptions —
-            e.g. confirming negative values and quantities weren't actually needed for v1.</p>
+      <ol class="journey-list">
+        <li class="journey-entry">
+          <span class="journey-num" aria-hidden="true">01</span>
+          <div class="journey-copy">
+            <h4>Merchant visits</h4>
+            <p>Visited three Copenhagen merchants who needed the feature, to validate scope assumptions,
+              e.g. confirming negative values and quantities weren't actually needed for v1.</p>
+          </div>
+        </li>
+        <li class="journey-entry">
+          <span class="journey-num" aria-hidden="true">02</span>
+          <div class="journey-copy">
+            <h4>Competitor benchmark</h4>
+            <p>Mapped how Toast, Lightspeed, Square and Tebi structure modifier groups, settings and POS
+              flows, to ground the design in patterns merchants already know.</p>
+          </div>
+        </li>
+        <li class="journey-entry">
+          <span class="journey-num" aria-hidden="true">03</span>
+          <div class="journey-copy">
+            <h4>Pattern-based design</h4>
+            <p>Designed the Portal and POS flows by extending Flatpay's existing patterns: keeping setup
+              and checkout familiar rather than introducing new mental models.</p>
+          </div>
+        </li>
+        <li class="journey-entry">
+          <span class="journey-num" aria-hidden="true">04</span>
+          <div class="journey-copy">
+            <h4>AI prototype</h4>
+            <p>Built an interactive prototype of the Portal setup flow to pressure-test the concept early:
+              see it live in the embed below.</p>
+          </div>
+        </li>
+        <li class="journey-entry">
+          <span class="journey-num" aria-hidden="true">05</span>
+          <div class="journey-copy">
+            <h4>Validation visit</h4>
+            <p>Returned to merchants with the PM and a developer. Key learning: "min/max selection" language
+              wasn't clear; more merchant-accessible copy tested better, even at the cost of added complexity.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="pivot" aria-label="How the validation visit changed the selection-rules copy">
+      <h3 class="subhead">The phrase that didn't survive contact with merchants</h3>
+      <p class="subhead-intro">
+        The first pass framed selection rules the way the team thought about them internally: a minimum
+        and a maximum to configure. In the validation visit, merchants stalled on it; they didn't think
+        in ranges, they thought in plain yes-or-no questions. Does the cashier have to pick one? Can they
+        pick more than one? The shipped version asks exactly that, even though it costs a little more
+        screen space than the original dropdowns.
+      </p>
+
+      <div class="compare">
+        <div class="compare-pair">
+          <figure class="compare-frame">
+            <span class="compare-tag">First pass</span>
+            <img src="assets/modifiers-old-toggles.png" alt="First-pass selection-rules controls: 'Minimum selection' and 'Maximum selection' dropdowns, both reading 'No minimum' and 'No maximum'" loading="lazy" />
+          </figure>
+          <figure class="compare-frame">
+            <span class="compare-tag">Shipped</span>
+            <img src="assets/modifier-group-settings.png" alt="Shipped Burger Add Ons modifier-group settings screen: Selection rules rewritten as 'Required', 'Auto Popup' and 'Allow multiple selections' toggles, each with a plain-language sentence of context" loading="lazy" />
+            <span class="marker" style="--mx: 75%; --my: 56%;" aria-hidden="true">1</span>
+            <span class="marker" style="--mx: 75%; --my: 67%;" aria-hidden="true">2</span>
+          </figure>
         </div>
-        <div class="flow-node">
-          <span class="flow-dot">2</span>
-          <h4>Competitor benchmark</h4>
-          <p>Mapped how Toast, Lightspeed, Square and Tebi structure modifier groups, settings and POS
-            flows — to ground the design in patterns merchants already know.</p>
-        </div>
-        <div class="flow-node">
-          <span class="flow-dot">3</span>
-          <h4>Pattern-based design</h4>
-          <p>Designed the Portal and POS flows by extending Flatpay's existing patterns — keeping setup
-            and checkout familiar rather than introducing new mental models.</p>
-        </div>
-        <div class="flow-node">
-          <span class="flow-dot">4</span>
-          <h4>AI prototype</h4>
-          <p>Built an interactive prototype of the Portal setup flow to pressure-test the concept early —
-            see it live in the embed below.</p>
-        </div>
-        <div class="flow-node">
-          <span class="flow-dot">5</span>
-          <h4>Validation visit</h4>
-          <p>Returned to merchants with the PM and a developer. Key learning: "min/max selection" language
-            wasn't clear — more merchant-accessible copy tested better, even at the cost of added complexity.</p>
-        </div>
+        <p class="compare-caption">
+          "Minimum selection of 1" became <strong>Required</strong>, with a line explaining that the
+          cashier must choose before continuing <span class="marker-ref" aria-hidden="true">1</span>.
+          "Maximum selection" became <strong>Allow multiple selections</strong>
+          <span class="marker-ref" aria-hidden="true">2</span>, a single switch a merchant can read at a
+          glance. Same underlying rules, rebuilt around how merchants actually talk about their menus.
+        </p>
       </div>
     </div>
 
-    <div class="gallery" aria-label="Modifiers screenshots">
-      <p class="gallery-label">Selected screens — Portal &amp; POS</p>
-      <div class="gallery-grid">
+    <div class="gallery" aria-label="Modifiers in the Portal, at the counter, and inside the product editor">
+      <p class="gallery-label">From setup to the counter, and back into daily use</p>
+
+      <figure class="filmstrip">
+        <img src="assets/modifiers-mpos.png" alt="Five-step mPOS flow on a Cappuccino order: opening the item, choosing a required Milk option and optional Extras, applying a percentage discount, and the final ticket showing the modifiers nested under each item" loading="lazy" />
+        <figcaption>The live mPOS flow, screen by screen: required and optional groups prompt in sequence, the price impact updates as choices are made, and the finished ticket nests every modifier clearly under its item.</figcaption>
+      </figure>
+
+      <div class="gallery-duo">
         <figure>
-          <img src="assets/modifier-group-settings.png" alt="Modifier group settings screen — name, modifier list with price and pre-select toggle, selection rules, linked products" loading="lazy" />
-          <figcaption>Modifier group settings — name, items, selection rules and linked products in one familiar Portal pattern</figcaption>
+          <img src="assets/modifiers-group.png" alt="Modifier groups overview in the Flatpay Portal: a searchable, filterable table of groups such as Temperature, Burger Add Ons and Sauce Options, each linked to its products" loading="lazy" />
+          <figcaption>Set up once in the Portal, on the same searchable table pattern merchants already use for products and categories.</figcaption>
         </figure>
         <figure>
-          <img src="assets/modifiers-group.png" alt="Modifier groups overview list in the Flatpay Portal" loading="lazy" />
-          <figcaption>Modifier groups overview — searchable, filterable list following the existing Portal table pattern</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/modifiers-mpos.png" alt="mPOS flow showing modifier selection on a Cappuccino order, single and multi-select groups, and the cart with modifiers nested under the item" loading="lazy" />
-          <figcaption>mPOS checkout flow — required and optional groups, live price impact, and modifiers nested clearly under the item in cart</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/modifiers-old-toggles.png" alt="Earlier exploration of modifier toggle and selection patterns" loading="lazy" />
-          <figcaption>Early exploration — testing toggle and selection patterns ahead of merchant validation</figcaption>
+          <img src="assets/modifiers-edit.png" alt="Sandwich Caprese Bufala product page in the Flatpay Portal, with a Modifiers section listed alongside Pricing and Stock: a Required Temperature group and three optional groups" loading="lazy" />
+          <figcaption>And from there into the product itself: on the Sandwich Caprese Bufala's own page, modifiers sit beside pricing and stock, just another property of the dish, not a bolt-on.</figcaption>
         </figure>
       </div>
     </div>
 
     <div class="prototype" aria-label="Live Modifiers prototype">
-      <p class="gallery-label">Live prototype — adding a modifier group, required &amp; toggle states</p>
+      <p class="gallery-label">Live prototype: adding a modifier group, required &amp; toggle states</p>
       <div class="prototype-frame">
         <iframe
           src="https://modifiers.lovable.app/"
@@ -243,14 +317,15 @@
         ></iframe>
       </div>
       <p class="prototype-caption">
-        Interactive — try adding a new item to a group, and toggling required / multi-select rules.
+        Interactive: try adding a new item to a group, and toggling required / multi-select rules.
         <a href="https://modifiers.lovable.app/" target="_blank" rel="noopener">Open full prototype ↗</a>
       </p>
     </div>
   </section>
+  </div>
 
   <footer class="site-footer">
-    <p>Flatpay · Product &amp; UX Design — Julia Lendzion</p>
+    <p>Flatpay · Product &amp; UX Design · Julia Lendzion</p>
   </footer>
 
   <script src="script.js"></script>
