@@ -79,14 +79,6 @@ a {
   padding-bottom: 32px;
 }
 
-.eyebrow {
-  font-size: 13px;
-  color: var(--ink-faint);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 16px;
-}
-
 .hero h1 {
   font-size: 48px;
   line-height: 1.1;
