@@ -37,10 +37,12 @@
   // position: sticky never activates inside an auto-resizing iframe: the
   // iframe's own viewport is sized to fit its full content, so it never
   // scrolls internally — all scrolling happens on the parent page, which the
-  // iframe's CSS can't see. When the embedding page's listener script (see
-  // FlatpayProcessAutoResize / scroll-sync companion) reports the iframe's
-  // position in the parent's viewport, emulate sticky with position: fixed,
-  // translated into the iframe's own coordinate space.
+  // iframe's CSS can't see. When the embedding page's companion script
+  // (FlatpayStickySync) reports the iframe's position in the parent's
+  // viewport, emulate sticky with a `transform: translateY()` nudge —
+  // purely visual, so it never changes layout/height and can't feed back
+  // into the height-broadcast ResizeObserver below (which caused a jump-
+  // on-every-scroll loop with an earlier position:fixed-based attempt).
   if (window.self === window.top) return;
 
   var toggle = document.querySelector('.case-toggle');
@@ -49,53 +51,30 @@
 
   var STICK_AT = 120; // keep in sync with .case-toggle { top: 120px }
   var natural = null;
-  var stuck = false;
-  var spacer = null;
   var lastIframeTop = null;
 
   function measure() {
-    if (stuck) return;
+    var prevTransform = toggle.style.transform;
+    toggle.style.transform = '';
     var t = toggle.getBoundingClientRect();
     var c = container.getBoundingClientRect();
-    natural = { top: t.top, left: t.left, width: t.width, height: t.height, containerBottom: c.bottom };
-  }
-
-  function stick(top) {
-    if (!spacer) {
-      spacer = document.createElement('div');
-      spacer.setAttribute('aria-hidden', 'true');
-      toggle.parentNode.insertBefore(spacer, toggle);
-    }
-    spacer.style.height = natural.height + 'px';
-    toggle.style.position = 'fixed';
-    toggle.style.top = top + 'px';
-    toggle.style.left = natural.left + 'px';
-    toggle.style.width = natural.width + 'px';
-    toggle.style.margin = '0';
-    stuck = true;
-  }
-
-  function release() {
-    if (!stuck) return;
-    toggle.style.position = '';
-    toggle.style.top = '';
-    toggle.style.left = '';
-    toggle.style.width = '';
-    toggle.style.margin = '';
-    if (spacer) spacer.style.height = '0';
-    stuck = false;
+    natural = { top: t.top, height: t.height, containerBottom: c.bottom };
+    toggle.style.transform = prevTransform;
   }
 
   function apply(iframeTop) {
     lastIframeTop = iframeTop;
     if (!natural) measure();
     if (!natural) return;
+
     var naturalY = iframeTop + natural.top;
-    if (naturalY >= STICK_AT) {
-      release();
-    } else {
-      stick(Math.min(STICK_AT - iframeTop, natural.containerBottom - natural.height));
-    }
+    var containerBottomY = iframeTop + natural.containerBottom;
+    var desiredY = naturalY >= STICK_AT
+      ? naturalY
+      : Math.min(STICK_AT, containerBottomY - natural.height);
+
+    var dy = desiredY - naturalY;
+    toggle.style.transform = Math.abs(dy) > 0.5 ? 'translateY(' + dy + 'px)' : '';
   }
 
   window.addEventListener('message', function (e) {
@@ -105,7 +84,6 @@
   });
 
   window.addEventListener('resize', function () {
-    release();
     natural = null;
     measure();
     if (lastIframeTop !== null) apply(lastIframeTop);
