@@ -15,7 +15,12 @@
 
     if (scrollToPanel) {
       var panel = document.getElementById('panel-' + stream);
-      if (panel) {
+      var toggle = document.querySelector('.case-toggle');
+      if (panel && toggle) {
+        var toggleBottom = toggle.getBoundingClientRect().bottom;
+        var panelTop = panel.getBoundingClientRect().top;
+        window.scrollBy({ top: panelTop - toggleBottom, behavior: 'smooth' });
+      } else if (panel) {
         panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
