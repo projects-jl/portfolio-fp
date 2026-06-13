@@ -34,63 +34,6 @@
 })();
 
 (function () {
-  // position: sticky never activates inside an auto-resizing iframe: the
-  // iframe's own viewport is sized to fit its full content, so it never
-  // scrolls internally — all scrolling happens on the parent page, which the
-  // iframe's CSS can't see. When the embedding page's companion script
-  // (FlatpayStickySync) reports the iframe's position in the parent's
-  // viewport, emulate sticky with a `transform: translateY()` nudge —
-  // purely visual, so it never changes layout/height and can't feed back
-  // into the height-broadcast ResizeObserver below (which caused a jump-
-  // on-every-scroll loop with an earlier position:fixed-based attempt).
-  if (window.self === window.top) return;
-
-  var toggle = document.querySelector('.case-toggle');
-  var container = document.querySelector('.case-studies');
-  if (!toggle || !container) return;
-
-  var STICK_AT = 120; // keep in sync with .case-toggle { top: 120px }
-  var natural = null;
-  var lastIframeTop = null;
-
-  function measure() {
-    var prevTransform = toggle.style.transform;
-    toggle.style.transform = '';
-    var t = toggle.getBoundingClientRect();
-    var c = container.getBoundingClientRect();
-    natural = { top: t.top, height: t.height, containerBottom: c.bottom };
-    toggle.style.transform = prevTransform;
-  }
-
-  function apply(iframeTop) {
-    lastIframeTop = iframeTop;
-    if (!natural) measure();
-    if (!natural) return;
-
-    var naturalY = iframeTop + natural.top;
-    var containerBottomY = iframeTop + natural.containerBottom;
-    var desiredY = naturalY >= STICK_AT
-      ? naturalY
-      : Math.min(STICK_AT, containerBottomY - natural.height);
-
-    var dy = desiredY - naturalY;
-    toggle.style.transform = Math.abs(dy) > 0.5 ? 'translateY(' + dy + 'px)' : '';
-  }
-
-  window.addEventListener('message', function (e) {
-    var d = e.data;
-    if (!d || d.source !== 'flatpay-process-parent' || typeof d.iframeTop !== 'number') return;
-    apply(d.iframeTop);
-  });
-
-  window.addEventListener('resize', function () {
-    natural = null;
-    measure();
-    if (lastIframeTop !== null) apply(lastIframeTop);
-  });
-})();
-
-(function () {
   function sendHeight() {
     var height = document.documentElement.scrollHeight;
     window.parent.postMessage({ source: 'flatpay-process', height: height }, '*');

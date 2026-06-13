@@ -229,7 +229,7 @@ a {
 /* ---------- Sticky case-study toggle (frosted pill) ---------- */
 .case-toggle {
   position: sticky;
-  top: 120px;
+  top: 24px;
   z-index: 20;
   display: inline-flex;
   gap: 4px;
@@ -686,7 +686,7 @@ a {
   .kpi-stat:first-child .kpi-dot { right: 0; }
 
   .case-toggle {
-    top: 120px;
+    top: 24px;
     width: 100%;
     justify-content: center;
   }
